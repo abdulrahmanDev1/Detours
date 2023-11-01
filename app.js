@@ -1,25 +1,25 @@
-import express, { json } from "express";
-import morgan from "morgan";
+const path = require('path');
+const express = require('express');
+const morgan = require('morgan');
 
-import tourRouter from "./routs/tourRouts.js";
-import userRouter from "./routs/userRouts.js";
+const tourRouter = require('./routs/tourRoutes');
+const userRouter = require('./routs/userRoutes');
 
 const app = express();
 
-// Middlewares:
+//* Middlewares: ===>
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
 
-app.use(morgan("dev"));
+//=========================================>
 
-app.use(json());
+app.use(express.json());
 
-// Routs:
-app.use("/api/v1/tours", tourRouter);
-app.use("/api/v1/users", userRouter);
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Server:
+//* Routs: ===>
+app.use('/api/v1/tours', tourRouter);
+app.use('/api/v1/users', userRouter);
 
-app.listen(3000, () => {
-  const url = "http://localhost:3000";
-  console.log(`Connected on ${url}`);
-
-});
+module.exports = app;
