@@ -10,16 +10,33 @@ exports.checkBody = (req, res, next) => {
   next();
 };
 
+const handleQueryParams = (query, params) => {
+  let result = query;
+  if (params.sort) {
+    result = result.sort(params.sort.split(',').join(' '));
+  }
+  if (params.limit) {
+    result = result.limit(Number(params.limit));
+  }
+  if (params.fields) {
+    result = result.select(params.fields.split(',').join(' '));
+  }
+  return result;
+};
+
 exports.aliasTopTours = (req, res, next) => {
-  req.query.limit = '5';
-  req.query.sort = '-ratingsAverage,price';
-  req.query.fields = 'name,price,ratingsAverage,summary,difficulty';
+  req.query = {
+    limit: '5',
+    sort: '-ratingsAverage,price',
+    fields: 'name,price,ratingsAverage,summary,difficulty',
+  };
   next();
 };
 
 exports.getAllTours = async (req, res) => {
   try {
-    const tours = await Tour.find(req.query);
+    const query = handleQueryParams(Tour.find(), req.query);
+    const tours = await query;
     res.status(200).json({
       status: 'success',
       results: tours.length,
