@@ -1,11 +1,15 @@
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 
-const tourRouter = require('./routs/tourRoutes');
-const userRouter = require('./routs/userRoutes');
+const tourRouter = require('./routes/tourRoutes');
+const userRouter = require('./routes/userRoutes');
 
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //* Middlewares: ===>
 if (process.env.NODE_ENV === 'development') {
