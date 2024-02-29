@@ -7,8 +7,6 @@ const handleCastErrorDB = (err) => {
 
 const handleDuplicateFieldsDB = (err) => {
   const value = err.errmsg.match(/(["'])(\\?.)*?\1/)[0];
-  console.log(value);
-
   const message = `Duplicate field value: ${value}. Please use another value!`;
   return new AppError(message, 400);
 };
@@ -22,19 +20,21 @@ const handleValidationErrorDB = (err) => {
 const sendErrorDev = (err, res) => {
   res.status(err.statusCode).json({
     status: err.status,
-    error: err,
     message: err.message,
+    error: err,
+    error_code: err.code,
     stack: err.stack,
   });
 };
 
-const sendErrorProd = (err, res, next) => {
+const sendErrorProd = (err, res) => {
   // Operational, trusted error: send message to client
   if (err.isOperational) {
     res.status(err.statusCode).json({
       status: err.status,
       message: err.message,
     });
+
     // Programming or other unknown error: don't leak error details
   } else {
     // 1) Log error
@@ -45,7 +45,6 @@ const sendErrorProd = (err, res, next) => {
       status: 'error',
       message: 'Something went very wrong!',
     });
-    next();
   }
 };
 
@@ -55,17 +54,13 @@ module.exports = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
   err.status = err.status || 'error';
 
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === 'production') {
+    if (error.name === 'CastError') err = handleCastErrorDB(err);
+    if (error.code === 11000) err = handleDuplicateFieldsDB(err);
+    if (error.name === 'ValidationError') error = handleValidationErrorDB(err);
+
+    sendErrorProd(err, res);
+  } else if (process.env.NODE_ENV === 'development') {
     sendErrorDev(err, res);
-  } else if (process.env.NODE_ENV === 'production') {
-    let error = { ...err };
-
-    if (error.name === 'CastError') error = handleCastErrorDB(error);
-    if (error.code === 11000) error = handleDuplicateFieldsDB(error);
-    if (error.name === 'ValidationError')
-      error = handleValidationErrorDB(error);
-
-    sendErrorProd(error, res);
-    next(error);
   }
 };
