@@ -19,9 +19,9 @@ Detours is a cutting-edge tours app built on Node.js that goes beyond the ordina
 To get started with Detours, follow these simple steps:
 
 1. **Clone the Repository:**
-   ```bash
+```bash
    git clone https://github.com/abdulrahmanDev1/Detours.git
-   ```
+```
 2. **Install Dependencies:**
   ```bash
    cd detours
@@ -49,7 +49,6 @@ Detours is built with the following technologies:
 
 - **JWT Authentication:** Secure user authentication and authorization using JSON Web Tokens.
 
-- **GitHub Actions:** Automate workflows for continuous integration and deployment.
 
 ## Contribution Guidelines
 
