@@ -19,18 +19,23 @@ Detours is a cutting-edge tours app built on Node.js that goes beyond the ordina
 To get started with Detours, follow these simple steps:
 
 1. **Clone the Repository:**
+
 ```bash
    git clone https://github.com/abdulrahmanDev1/Detours.git
 ```
+
 2. **Install Dependencies:**
-  ```bash
-   cd detours
-   npm install
+
+```bash
+ cd detours
+ npm install
 ```
+
 3. **Set Up Environment Variables:**
-Create a `.env` file and configure your environment variables, including API keys and database connections.
+   Create a `.env` file and configure your environment variables, including API keys and database connections.
 
 4. **Run the Application:**
+
 ```bash
 npm start
 ```
@@ -49,14 +54,8 @@ Detours is built with the following technologies:
 
 - **JWT Authentication:** Secure user authentication and authorization using JSON Web Tokens.
 
-
 ## Contribution Guidelines
 
-We welcome contributions from the community! If you have ideas for new features, bug fixes, or improvements, please submit a pull request following our [contribution guidelines](CONTRIBUTING.md).
-
-## License
-
-Detours is licensed under the [MIT License](LICENSE), ensuring an open and collaborative development environment.
+We welcome contributions from the community! If you have ideas for new features, bug fixes, or improvements, please submit a pull request!.
 
 Start your Detours adventure today and redefine the way you experience the world! Happy exploring! 🌍✨
-
