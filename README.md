@@ -33,7 +33,7 @@ To get started with Detours, follow these simple steps:
 
 3. **Set Up Environment Variables:**
    Create a `.env` file and configure your environment variables, including API keys and database connections.
-   [Example .env Confogration](https://github.com/username/repository/blob/main/.env_Variables.txt)
+   [Example .env Confogration](https://github.com/abdulrahmanDev1/Detours/blob/main/.env_Variables.txt)
 
 4. **Run the Application:**
 
