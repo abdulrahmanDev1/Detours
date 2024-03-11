@@ -1,6 +1,7 @@
 const User = require('../models/userModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
+const factory = require('./handlerFactory');
 
 // This function is used to filter out unwanted fields from the request body, allowing only the fields that are allowed to be updated by the user.
 const filterObj = (obj, ...allowedFields) => {
@@ -75,9 +76,4 @@ exports.updateUser = (req, res) => {
     message: 'this Rout not yet defined',
   });
 };
-exports.deleteUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'this Rout not yet defined',
-  });
-};
+exports.deleteUser = factory.deleteOne(User);

@@ -3,8 +3,9 @@ const express = require('express');
 const router = express.Router();
 const tourController = require('../controllers/tourController');
 const { protect, restrictTo } = require('../controllers/authController');
+const reviewRouter = require('./reviewRouts');
 
-// router.param('id', tourController.checkID);
+router.use('/:tourId/reviews', reviewRouter);
 
 router
   .route('/top-5-cheap')
