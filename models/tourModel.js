@@ -141,12 +141,6 @@ tourSchema.pre(/^find/, function (next) {
   next();
 });
 
-//? Aggregation Middleware: runs before or after an aggregation is executed
-// tourSchema.pre('aggregate', function (next) {
-//   this.pipeline().unshift({ $match: { secretTour: { $ne: true } } });
-//   next();
-// });
-
 const Tour = mongoose.model('Tour', tourSchema);
 
 module.exports = Tour;
