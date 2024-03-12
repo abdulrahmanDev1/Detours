@@ -29,14 +29,14 @@ To get started with Detours, follow these simple steps:
 1. **Clone the Repository:**
 
 ```bash
-   git clone https://github.com/abdulrahmanDev1/Detours.git
+git clone https://github.com/abdulrahmanDev1/Detours.git
 ```
 
 2. **Install Dependencies:**
 
 ```bash
- cd detours
- npm install
+cd detours
+npm install
 ```
 
 3. **Set Up Environment Variables:**
