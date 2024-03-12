@@ -2,6 +2,12 @@
 
 Detours is a cutting-edge tours app built on Node.js that goes beyond the ordinary, offering a platform for unique and unforgettable travel experiences. Discover the world in a way you've never imagined as you embark on extraordinary detours curated just for you.
 
+
+## API Documentation
+
+Explore the Detours API for integrating with your applications and services. View the [Detours API documentation](https://documenter.getpostman.com/view/23969686/2sA2xjyWae) for detailed information on endpoints, request parameters, and responses.
+
+
 ## Features
 
 - **Diverse Tours:** Explore a wide array of carefully crafted tours, ranging from adventurous outdoor excursions to culturally rich city tours.
