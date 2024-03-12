@@ -7,7 +7,7 @@ Detours is a cutting-edge tours app built on Node.js that goes beyond the ordina
 
 Explore the Detours API for integrating with your applications and services. View the [Detours API documentation](https://documenter.getpostman.com/view/23969686/2sA2xjyWae) for detailed information on endpoints, request parameters, and responses.
 
-**Note:** You can log in with **laura@example.com** and password **test1234**.
+**Note:** You can log in with `laura@example.com` and password `test1234`.
 
 
 ## Features
