@@ -9,7 +9,7 @@ const hpp = require('hpp');
 const bodyParser = require('body-parser');
 
 const AppError = require('./utils/appError');
-const globalErrorHandler = require('./controllers/errorController');
+const globalErrorHandler = require('/opt/render/project/controllers/errorController');
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRouts');
