@@ -17,10 +17,6 @@ const viewRouter = require('./routes/viewRouts');
 
 const app = express();
 
-// Set view engine and views directory
-app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, 'views'));
-
 // Serve static files from public directory
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -62,7 +58,6 @@ app.use(
 );
 
 // Routes
-app.use('/', viewRouter);
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/reviews', reviewRouter);
