@@ -8,7 +8,10 @@ const DB = process.env.DATABASE.replace(
   process.env.DATABASE_PASSWORD
 );
 
-mongoose.connect(DB).then(() => console.log('DB connection successful!'));
+mongoose.connect(DB).then(() => {
+  if (process.env.NODE_ENV === 'development')
+    console.log('DB connection successful!');
+});
 mongoose.set('strictQuery', false);
 
 const app = require('./app');
@@ -16,6 +19,8 @@ const app = require('./app');
 //? Server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  const url = `http://localhost:${port}`;
-  console.log(`Connected on ${url}`);
+  if (process.env.NODE_ENV === 'development') {
+    const url = `http://localhost:${port}`;
+    console.log(`Connected on ${url}`);
+  }
 });
