@@ -2,7 +2,7 @@
 
 Detours is a cutting-edge tours app built on Node.js that goes beyond the ordinary, offering a platform for unique and unforgettable travel experiences. Discover the world in a way you've never imagined as you embark on extraordinary detours curated just for you.
 
-Detours Now Running <a href="https://detours.onrender.com" style="color: #006400; text-decoration: none;">here</a>
+Detours Now Running <a href="https://detours.d7om.dev" style="color: #006400; text-decoration: none;">here</a>
 
 ## API Documentation
 
