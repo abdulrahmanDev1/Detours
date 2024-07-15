@@ -1,25 +1,25 @@
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
-dotenv.config({ path: './.env' });
+dotenv.config({ path: "./.env" });
 
 const DB = process.env.DATABASE.replace(
-  '<PASSWORD>',
-  process.env.DATABASE_PASSWORD
+  "<PASSWORD>",
+  process.env.DATABASE_PASSWORD,
 );
 
 mongoose.connect(DB).then(() => {
-  if (process.env.NODE_ENV === 'development')
-    console.log('DB connection successful!');
+  if (process.env.NODE_ENV === "development")
+    console.log("DB connection successful!");
 });
-mongoose.set('strictQuery', false);
+mongoose.set("strictQuery", false);
 
-const app = require('./app');
+const app = require("./app");
 
 //? Server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === "development") {
     const url = `http://localhost:${port}`;
     console.log(`Connected on ${url}`);
   }
